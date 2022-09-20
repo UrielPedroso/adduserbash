@@ -38,6 +38,8 @@ else
 
 groupadd $sgroup
 
+fi
+
 done
 
 read -p "Please enter bash [/bin/bash] : " bash
