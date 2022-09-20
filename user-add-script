@@ -28,6 +28,16 @@ groupadd $group
 
 fi
 
+read -p "Please enter the secondary group. If group not exist, it will be created : " group
+
+if id -G $sgroup >/dev/null 2>&1; then
+
+echo "Group exist"
+
+else
+
+groupadd $sgroup
+
 done
 
 read -p "Please enter bash [/bin/bash] : " bash
@@ -50,6 +60,6 @@ read -p "Please confirm [y/n]" confirm
 
 if [ "$confirm" = "y" ]; then
 
-useradd -g $group -s $bash -d $homedir -m $username
+useradd -g $group -G $sgroup -s $bash -d $homedir -m $username
 
 fi
